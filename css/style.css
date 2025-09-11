@@ -1,0 +1,207 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Bree Serif", serif;
+    font-weight: 200;
+}
+li{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+::-webkit-scrollbar{
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    background: var(--black);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--skyblue-light);
+}
+:root{
+    --body-bg:rgb(238, 238, 238);
+    --white: white;
+    --black: #1e272e;
+    --skyblue: #0fbcf9;
+    --skyblue-light:#4bcffa;
+    --shadow-1: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+    --font05rem: 0.5rem;
+    --font1rem: 1rem;
+    --font11rem: 1.1rem;
+    --font12rem: 1.2rem;
+    --font13rem: 1.3rem;
+    --font14rem: 1.4rem;
+    --font15rem: 1.5rem;
+    --font2rem: 2rem;
+    --font3rem: 3rem;
+}
+.container{
+    max-width: 1120px;
+    margin: 0 auto;
+}
+/* header */
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #151b20;
+    color: var(--white);
+    z-index: 5;
+    padding: var(--font05rem) var(--font1rem);
+}
+.nav-data{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-logo{
+    display: flex;
+    align-items: center;
+    gap: var(--font05rem);
+}
+.nav-logo i{
+    font-size: var(--font15rem);
+}
+.nav-logo span{
+    color: var(--skyblue);
+}
+.nav-toggler{
+    position: relative;
+    width: 30px;
+    height: 30px;
+}
+.nav-toggler i{
+    position: absolute;
+    width: max-content;
+    height: max-content;
+    inset: 0;
+    margin: auto;
+    cursor: pointer;
+    font-size: var(--font14rem);
+}
+.fa-bars{
+    opacity: 1;
+    pointer-events: all;
+    transition:all .5s ease-in-out;
+}
+.fa-xmark{
+    opacity: 0;
+    pointer-events: none;
+    transform: rotate(90deg);
+    transition:all .5s ease-in-out;
+}
+.nav-toggler.show-icon .fa-xmark{
+    opacity: 1;
+    pointer-events: all;
+    transition:all .5s ease-in-out;
+    transform: rotate(90deg);
+}
+.nav-toggler.show-icon .fa-bars{
+    opacity: 0;
+    pointer-events: none;
+    transform: rotate(90deg);
+    transition:all .5s ease-in-out;
+}
+.nav-link{
+    cursor: pointer;
+}
+.dropdown-item .fa-angle-down{
+    transition: .5s ease-in-out;
+}
+.dropdown-menu{
+    background: #242e36;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all .5s ease-in-out;
+}
+.dropdown-item:hover .dropdown-menu{
+    max-height: 1000px;
+    overflow: hidden;
+    opacity: 1;
+    transition: all .8s ease-in-out;
+}
+    .nav-link{
+        padding:.7rem 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition:all .1s ease-in-out;
+    }
+    .nav-link:hover,
+    .dropdown-link:hover{
+        background: #151b20;
+    }
+    .dropdown-link{
+        display: flex;
+        padding:.7rem 1rem;
+    }
+
+    .dropdown-item:hover .fa-angle-down{
+        transform: rotate(180deg);
+    }
+    .nav-list{
+        display: flex;
+
+    }
+    .dropdown-menu{
+        position: absolute;
+        top: 3.7rem;
+        width: 200px;
+    }
+   
+/* header */
+
+/* media query <991px */
+@media (max-width:991px){
+    .nav-menu{
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 3.7rem;
+        transform: scale(.9);
+        transform-origin: top right;
+        height: calc(100vh - 5rem);
+        opacity: 0;
+        pointer-events: none;
+        transition:all .3s ease-in-out;
+        overflow-y: auto;
+    }
+  .nav-list{
+        background:var(--black);
+        flex-direction: column;
+    }
+    .dropdown-menu{
+        position: initial;
+        width: 100%;
+    }
+    .nav-menu.show-menu{
+        opacity: 1;
+        pointer-events: all;
+        transform: scale(1);
+    }
+
+}
+/* media query <991px */
+/* media query >991px */
+@media (min-width:991px){
+    .nav-toggler{
+        display: none;
+    }
+    .nav{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+/* media query >991px */
+/* media query >1440px */
+@media (min-width:1400px){
+    .container{
+        max-width: 1200px;
+    }
+}
+/* media query >1440px */
