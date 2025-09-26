@@ -441,7 +441,9 @@ img{
 .lg-sub-html p{
     font-size: 18px !important;
 }
-
+.card-item{
+    cursor: pointer;
+}
 /* media query <991px */
 @media (max-width:991px){
     .nav-menu{
